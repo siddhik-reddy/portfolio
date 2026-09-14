@@ -425,3 +425,278 @@ button {
 }
 
 .card:hover {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-md);
+}
+
+.card-title {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-3);
+}
+
+.card-text {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-4);
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: var(--space-4);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--space-6);
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card .tag-list {
+  margin-bottom: var(--space-4);
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-top: auto;
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: var(--space-4);
+}
+
+/* ============================================================
+   10. TAGS / LISTS
+   ============================================================ */
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 0.2rem 0.6rem;
+}
+
+.bullet-list {
+  list-style: none;
+  margin: var(--space-3) 0 var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.bullet-list li {
+  position: relative;
+  padding-left: var(--space-4);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+}
+
+.bullet-list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.6em;
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+}
+
+/* ============================================================
+   11. TIMELINE
+   ============================================================ */
+
+.timeline {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  border-left: 1px solid var(--border);
+  padding-left: var(--space-6);
+}
+
+.timeline-item {
+  position: relative;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--space-6) - 5px);
+  top: 8px;
+  width: 9px;
+  height: 9px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+}
+
+.timeline-period {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+  margin-bottom: var(--space-2);
+}
+
+/* ============================================================
+   12. CONTACT
+   ============================================================ */
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: var(--space-12);
+}
+
+.contact-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.contact-list a {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  transition: color var(--t-fast);
+}
+
+.contact-list a:hover {
+  color: var(--accent);
+}
+
+.contact-form {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+}
+
+/* ============================================================
+   13. PROJECT DETAILS
+   ============================================================ */
+
+.project-details {
+  max-width: 800px;
+}
+
+.back-link {
+  margin-bottom: var(--space-6);
+}
+
+.project-details .lead {
+  margin-bottom: var(--space-6);
+}
+
+.project-details .project-actions {
+  margin-bottom: var(--space-12);
+}
+
+.project-block {
+  margin-bottom: var(--space-8);
+}
+
+.project-block .h2 {
+  font-size: var(--fs-xl);
+  margin-bottom: var(--space-3);
+}
+
+/* ============================================================
+   14. FOOTER
+   ============================================================ */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding-block: var(--space-8);
+  margin-top: var(--space-16);
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+  font-size: var(--fs-sm);
+}
+
+/* ============================================================
+   15. RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  :root {
+    --fs-4xl: 2.25rem;
+    --fs-3xl: 1.875rem;
+    --fs-2xl: 1.5rem;
+    --section-y: var(--space-16);
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-btn {
+    display: inline-flex;
+  }
+
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-4) var(--space-6) var(--space-6);
+    border-top: 1px solid var(--border);
+    background: var(--bg);
+  }
+
+  .mobile-link {
+    padding: var(--space-3) 0;
+    font-size: var(--fs-base);
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .mobile-link:last-child {
+    border-bottom: none;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+
+/* ============================================================
+   16. REDUCED MOTION
+   ============================================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
