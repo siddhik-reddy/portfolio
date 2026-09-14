@@ -1,4 +1,4 @@
-```javascript
+
 export const education = [
   {
     degree: "B.Tech, Computer Science",
@@ -13,4 +13,3 @@ export const education = [
     location: "India",
   },
 ];
-```
