@@ -1,3 +1,4 @@
+
 export const projects = [
   {
     slug: "agriagent",
@@ -15,7 +16,7 @@ export const projects = [
       "Accessible navigation",
     ],
     technologies: ["React", "Node.js", "REST API"],
-    github: "https://github.com/siddhik-reddy",
+    github: "https://play.google.com/store/apps/details?id=com.agriagent.app",
     demo: "",
     image: "",
     featured: true,
@@ -44,3 +45,4 @@ export const projects = [
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
+
