@@ -374,6 +374,13 @@ button {
   padding-block: calc(var(--section-y) + var(--space-8));
 }
 
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-12);
+  align-items: center;
+}
+
 .hero-eyebrow {
   font-family: var(--font-mono);
   font-size: var(--fs-sm);
@@ -412,7 +419,92 @@ button {
 }
 
 /* ============================================================
-   9. CARDS / GRIDS
+   9. INTRO VIDEO
+   ============================================================ */
+
+.hero-video {
+  width: 100%;
+}
+
+.intro-video {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.intro-video-el {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.intro-video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  background: color-mix(in srgb, var(--bg) 30%, transparent);
+  color: var(--text);
+  transition: background var(--t-base);
+}
+
+.intro-video-overlay:hover {
+  background: color-mix(in srgb, var(--bg) 10%, transparent);
+}
+
+.intro-video-play {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  color: #ffffff;
+  transition: transform var(--t-base);
+}
+
+[data-theme="dark"] .intro-video-play {
+  color: #0a0a0b;
+}
+
+.intro-video-overlay:hover .intro-video-play {
+  transform: scale(1.06);
+}
+
+.intro-video-label {
+  font-size: var(--fs-sm);
+  color: var(--text);
+}
+
+.intro-video-mute {
+  position: absolute;
+  right: var(--space-3);
+  bottom: var(--space-3);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: color-mix(in srgb, var(--bg) 75%, transparent);
+  color: var(--text);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(6px);
+}
+
+.intro-video-mute:hover {
+  color: var(--accent);
+}
+
+/* ============================================================
+   10. CARDS / GRIDS
    ============================================================ */
 
 .card {
@@ -476,7 +568,7 @@ button {
 }
 
 /* ============================================================
-   10. TAGS / LISTS
+   11. TAGS / LISTS
    ============================================================ */
 
 .tag-list {
@@ -523,7 +615,7 @@ button {
 }
 
 /* ============================================================
-   11. TIMELINE
+   12. TIMELINE
    ============================================================ */
 
 .timeline {
@@ -558,14 +650,8 @@ button {
 }
 
 /* ============================================================
-   12. CONTACT
+   13. CONTACT
    ============================================================ */
-
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: var(--space-12);
-}
 
 .contact-list {
   list-style: none;
@@ -578,7 +664,7 @@ button {
 .contact-list a {
   display: inline-flex;
   align-items: center;
-  gap: var(--space-2);
+  gap: var(--space-3);
   color: var(--text-muted);
   font-size: var(--fs-sm);
   transition: color var(--t-fast);
@@ -588,15 +674,17 @@ button {
   color: var(--accent);
 }
 
-.contact-form {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-6);
+.contact-list-lg {
+  gap: var(--space-4);
+  margin-top: var(--space-6);
+}
+
+.contact-list-lg a {
+  font-size: var(--fs-base);
 }
 
 /* ============================================================
-   13. PROJECT DETAILS
+   14. PROJECT DETAILS
    ============================================================ */
 
 .project-details {
@@ -625,7 +713,87 @@ button {
 }
 
 /* ============================================================
-   14. FOOTER
+   15. MODAL
+   ============================================================ */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: color-mix(in srgb, #000 55%, transparent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-4);
+  animation: fadeIn var(--t-base) ease;
+}
+
+.modal {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  box-shadow: var(--shadow-lg);
+  animation: modalIn var(--t-base) ease;
+}
+
+.modal-close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-close:hover {
+  color: var(--accent);
+}
+
+.modal-eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.modal-title {
+  margin-bottom: var(--space-3);
+}
+
+.modal-text {
+  color: var(--text-muted);
+  font-size: var(--fs-sm);
+  margin-bottom: var(--space-6);
+}
+
+.modal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ============================================================
+   16. FOOTER
    ============================================================ */
 
 .footer {
@@ -643,7 +811,7 @@ button {
 }
 
 /* ============================================================
-   15. RESPONSIVE
+   17. RESPONSIVE
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -681,14 +849,18 @@ button {
     border-bottom: none;
   }
 
-  .contact-grid {
+  .hero-grid {
     grid-template-columns: 1fr;
     gap: var(--space-8);
+  }
+
+  .modal {
+    padding: var(--space-6);
   }
 }
 
 /* ============================================================
-   16. REDUCED MOTION
+   18. REDUCED MOTION
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
