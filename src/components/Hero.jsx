@@ -1,50 +1,87 @@
-import { Github, Linkedin, Mail, Download } from "lucide-react";
+import { useRef, useState } from "react";
+import { Github, Linkedin, Mail, Download, MessageCircle } from "lucide-react";
 import { profile } from "../data/profile.js";
+import IntroVideo from "./IntroVideo.jsx";
+import OpenToWorkModal from "./OpenToWorkModal.jsx";
 
 export default function Hero() {
+  const [modalOpen, setModalOpen] = useState(false);
+  const shownRef = useRef(false);
+
+  const handleVideoEnded = () => {
+    if (shownRef.current) return;
+    shownRef.current = true;
+    setModalOpen(true);
+  };
+
   return (
     <section id="home" className="section hero">
       <div className="container">
-        <p className="hero-eyebrow">Frontend Developer</p>
-        <h1 className="h1 hero-title">{profile.name}</h1>
-        <p className="lead hero-tagline">{profile.tagline}</p>
+        <div className="hero-grid">
+          <div className="hero-content">
+            <p className="hero-eyebrow">Frontend Developer</p>
+            <h1 className="h1 hero-title">{profile.name}</h1>
+            <p className="lead hero-tagline">{profile.tagline}</p>
 
-        <div className="hero-cta">
-          <a href="#projects" className="btn btn-primary">
-            View Projects
-          </a>
-          <a
-            href={profile.resumeUrl}
-            download
-            className="btn btn-secondary"
-          >
-            <Download size={16} />
-            Download Resume
-          </a>
-        </div>
+            <div className="hero-cta">
+              <a href="#projects" className="btn btn-primary">
+                View Projects
+              </a>
+              <a
+                href={profile.resumeUrl}
+                download
+                className="btn btn-secondary"
+              >
+                <Download size={16} />
+                Download Resume
+              </a>
+            </div>
 
-        <div className="hero-socials">
-          <a
-            href={profile.links.github}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="GitHub"
-          >
-            <Github size={18} />
-          </a>
-          <a
-            href={profile.links.linkedin}
-            target="_blank"
-            rel="noreferrer"
-            aria-label="LinkedIn"
-          >
-            <Linkedin size={18} />
-          </a>
-          <a href={`mailto:${profile.email}`} aria-label="Email">
-            <Mail size={18} />
-          </a>
+            <div className="hero-socials">
+              <a
+                href={profile.links.github}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="GitHub"
+              >
+                <Github size={18} />
+              </a>
+              <a
+                href={profile.links.linkedin}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="LinkedIn"
+              >
+                <Linkedin size={18} />
+              </a>
+              <a href={`mailto:${profile.email}`} aria-label="Email">
+                <Mail size={18} />
+              </a>
+              <a
+                href={`https://wa.me/${profile.whatsapp}`}
+                target="_blank"
+                rel="noreferrer"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle size={18} />
+              </a>
+            </div>
+          </div>
+
+          <div className="hero-video">
+            <IntroVideo
+              src="/intro.mp4"
+              poster="/intro-poster.jpg"
+              onEnded={handleVideoEnded}
+            />
+          </div>
         </div>
       </div>
+
+      <OpenToWorkModal
+        open={modalOpen}
+        onClose={() => setModalOpen(false)}
+      />
     </section>
   );
 }
