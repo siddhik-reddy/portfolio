@@ -419,88 +419,124 @@ button {
 }
 
 /* ============================================================
-   9. INTRO VIDEO
+   9. TERMINAL
    ============================================================ */
 
-.hero-video {
+.hero-terminal {
   width: 100%;
 }
 
-.intro-video {
-  position: relative;
-  aspect-ratio: 16 / 9;
+.terminal {
   background: var(--surface-2);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   overflow: hidden;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  box-shadow: var(--shadow-md);
 }
 
-.intro-video-el {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
 }
 
-.intro-video-overlay {
-  position: absolute;
-  inset: 0;
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--radius-full);
+  background: var(--border);
+}
+
+.terminal-title {
+  margin-left: auto;
+  font-size: var(--fs-xs);
+  color: var(--text-muted);
+}
+
+.terminal-body {
+  padding: var(--space-6);
+  min-height: 260px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
   gap: var(--space-3);
-  background: color-mix(in srgb, var(--bg) 30%, transparent);
-  color: var(--text);
-  transition: background var(--t-base);
 }
 
-.intro-video-overlay:hover {
-  background: color-mix(in srgb, var(--bg) 10%, transparent);
+.term-line {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  line-height: 1.5;
+  min-height: 1.5em;
 }
 
-.intro-video-play {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 64px;
-  height: 64px;
-  border-radius: var(--radius-full);
-  background: var(--accent);
-  color: #ffffff;
-  transition: transform var(--t-base);
-}
-
-[data-theme="dark"] .intro-video-play {
-  color: #0a0a0b;
-}
-
-.intro-video-overlay:hover .intro-video-play {
-  transform: scale(1.06);
-}
-
-.intro-video-label {
-  font-size: var(--fs-sm);
-  color: var(--text);
-}
-
-.intro-video-mute {
-  position: absolute;
-  right: var(--space-3);
-  bottom: var(--space-3);
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-full);
-  background: color-mix(in srgb, var(--bg) 75%, transparent);
-  color: var(--text);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(6px);
-}
-
-.intro-video-mute:hover {
+.term-prompt {
   color: var(--accent);
+}
+
+.term-output {
+  color: var(--text-muted);
+  padding-left: var(--space-2);
+}
+
+.term-status-row {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding-left: var(--space-2);
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: #22c55e;
+  box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  animation: pulse 2s infinite;
+}
+
+.term-cursor {
+  display: inline-block;
+  width: 8px;
+  height: 1em;
+  background: var(--accent);
+  margin-left: var(--space-1);
+  vertical-align: text-bottom;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+  }
+  70% {
+    box-shadow: 0 0 0 8px rgba(34, 197, 94, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .term-cursor,
+  .status-dot {
+    animation: none;
+  }
 }
 
 /* ============================================================
@@ -713,87 +749,7 @@ button {
 }
 
 /* ============================================================
-   15. MODAL
-   ============================================================ */
-
-.modal-backdrop {
-  position: fixed;
-  inset: 0;
-  z-index: 100;
-  background: color-mix(in srgb, #000 55%, transparent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: var(--space-4);
-  animation: fadeIn var(--t-base) ease;
-}
-
-.modal {
-  position: relative;
-  width: 100%;
-  max-width: 480px;
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-lg);
-  animation: modalIn var(--t-base) ease;
-}
-
-.modal-close {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  width: 32px;
-  height: 32px;
-  border-radius: var(--radius-md);
-  color: var(--text-muted);
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.modal-close:hover {
-  color: var(--accent);
-}
-
-.modal-eyebrow {
-  font-family: var(--font-mono);
-  font-size: var(--fs-xs);
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  margin-bottom: var(--space-3);
-}
-
-.modal-title {
-  margin-bottom: var(--space-3);
-}
-
-.modal-text {
-  color: var(--text-muted);
-  font-size: var(--fs-sm);
-  margin-bottom: var(--space-6);
-}
-
-.modal-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-@keyframes modalIn {
-  from { opacity: 0; transform: translateY(8px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* ============================================================
-   16. FOOTER
+   15. FOOTER
    ============================================================ */
 
 .footer {
@@ -811,7 +767,7 @@ button {
 }
 
 /* ============================================================
-   17. RESPONSIVE
+   16. RESPONSIVE
    ============================================================ */
 
 @media (max-width: 768px) {
@@ -853,14 +809,10 @@ button {
     grid-template-columns: 1fr;
     gap: var(--space-8);
   }
-
-  .modal {
-    padding: var(--space-6);
-  }
 }
 
 /* ============================================================
-   18. REDUCED MOTION
+   17. REDUCED MOTION
    ============================================================ */
 
 @media (prefers-reduced-motion: reduce) {
