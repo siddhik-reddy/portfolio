@@ -1,25 +1,14 @@
-import { useRef, useState } from "react";
 import { Github, Linkedin, Mail, Download, MessageCircle } from "lucide-react";
 import { profile } from "../data/profile.js";
-import IntroVideo from "./IntroVideo.jsx";
-import OpenToWorkModal from "./OpenToWorkModal.jsx";
+import TerminalIntro from "./TerminalIntro.jsx";
 
 export default function Hero() {
-  const [modalOpen, setModalOpen] = useState(false);
-  const shownRef = useRef(false);
-
-  const handleVideoEnded = () => {
-    if (shownRef.current) return;
-    shownRef.current = true;
-    setModalOpen(true);
-  };
-
   return (
     <section id="home" className="section hero">
       <div className="container">
         <div className="hero-grid">
           <div className="hero-content">
-            <p className="hero-eyebrow">Frontend Developer</p>
+            <p className="hero-eyebrow">Full Stack Developer</p>
             <h1 className="h1 hero-title">{profile.name}</h1>
             <p className="lead hero-tagline">{profile.tagline}</p>
 
@@ -68,20 +57,11 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="hero-video">
-            <IntroVideo
-              src="/intro.mp4"
-              poster="/intro-poster.jpg"
-              onEnded={handleVideoEnded}
-            />
+          <div className="hero-terminal">
+            <TerminalIntro />
           </div>
         </div>
       </div>
-
-      <OpenToWorkModal
-        open={modalOpen}
-        onClose={() => setModalOpen(false)}
-      />
     </section>
   );
 }
