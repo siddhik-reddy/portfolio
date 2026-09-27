@@ -1,6 +1,6 @@
 export const profile = {
   name: "Siddhik Reddy",
-  title: "",
+  title: "IT",
   tagline: "Building modern, responsive and scalabl systems",
   location: "India",
   email: "siddhikreddy440@gmail.com",
