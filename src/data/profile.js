@@ -1,7 +1,7 @@
 export const profile = {
   name: "Siddhik Reddy",
-  title: "Full Stack Developer",
-  tagline: "Building modern, responsive and scalable web applications.",
+  title: "",
+  tagline: "Building modern, responsive and scalabl systems",
   location: "India",
   email: "siddhikreddy440@gmail.com",
   whatsapp: "918897350151",
