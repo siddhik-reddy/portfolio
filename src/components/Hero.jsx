@@ -8,7 +8,7 @@ export default function Hero() {
       <div className="container">
         <div className="hero-grid">
           <div className="hero-content">
-            <p className="hero-eyebrow">Full Stack Developer</p>
+            <p className="hero-eyebrow"></p>
             <h1 className="h1 hero-title">{profile.name}</h1>
             <p className="lead hero-tagline">{profile.tagline}</p>
 
