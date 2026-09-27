@@ -9,5 +9,5 @@ export const profile = {
     github: "https://github.com/siddhik-reddy",
     linkedin: "https://linkedin.com/in/siddhik-reddy",
   },
-  resumeUrl: "/siddhik_resume.pdf",
+  resumeUrl: "/Siddhik_Reddy_IT_Support_Resume.pdf",
 };
