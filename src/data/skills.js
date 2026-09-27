@@ -1,22 +1,61 @@
 export const skills = [
-  {
-    category: "Frontend",
-    items: ["React", "JavaScript", "HTML", "CSS", "Responsive Design"],
-  },
-  {
-    category: "Backend",
-    items: ["Node.js", "Express", "REST APIs"],
-  },
-  {
-    category: "Programming",
-    items: ["Python", "JavaScript"],
-  },
-  {
-    category: "Tools",
-    items: ["Git", "GitHub", "Linux", "Docker"],
-  },
-  {
-    category: "Cloud",
-    items: ["AWS"],
-  },
+{
+category: "IT Support",
+items: [
+"Technical Troubleshooting",
+"Windows Support",
+"Desktop Support",
+"User & Account Management",
+"System Administration",
+],
+},
+{
+category: "Networking",
+items: [
+"TCP/IP",
+"DNS",
+"DHCP",
+"NAT",
+"VPN",
+"Network Troubleshooting",
+],
+},
+{
+category: "Windows & Active Directory",
+items: [
+"Windows Server",
+"Active Directory",
+"Group Policy",
+"Domain Management",
+"Windows Authentication",
+"PowerShell",
+],
+},
+{
+category: "Systems & Tools",
+items: [
+"VMware",
+"IIS",
+"Linux",
+"Git",
+"GitHub",
+"ServiceNow",
+],
+},
+{
+category: "Security",
+items: [
+"Authentication",
+"Access Control",
+"Endpoint Security Fundamentals",
+"SOC Fundamentals",
+],
+},
+{
+category: "Development",
+items: [
+"Python",
+"MongoDB",
+],
+},
 ];
