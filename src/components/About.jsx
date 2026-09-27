@@ -1,7 +1,7 @@
 export default function About() {
 return ( <section id="about" className="section"> <div className="container"> <h2 className="h2 section-title">About</h2>
 
-```
+
     <p className="body-text">
       I am a Computer Science graduate focused on IT Support and Technical
       Support, with hands-on experience working with Windows, Linux,
@@ -19,7 +19,7 @@ return ( <section id="about" className="section"> <div className="container"> <h
     </p>
   </div>
 </section>
-```
+
 
 );
 }
