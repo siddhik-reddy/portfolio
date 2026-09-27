@@ -1,9 +1,10 @@
 import { useEffect, useRef, useState } from "react";
 
 const LINES = [
-  { prompt: "$ whoami", output: "siddhik reddy" },
-  { prompt: "$ role", output: "full stack developer" },
-  { prompt: "$ stack", output: "react · node · rest apis" },
+{ prompt: "$ whoami", output: "siddhik reddy" },
+{ prompt: "$ role", output: "IT-SUPPORT · TECHNICAL-SUPPORT" },
+{ prompt: "$ focus", output: "windows · active directory · networking" },
+{ prompt: "$ tools", output: "powershell · vmware · linux · servicENow" },
 ];
 
 const STATUS_LINE = "open to work";
