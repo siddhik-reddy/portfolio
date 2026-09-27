@@ -3,14 +3,19 @@ return ( <section id="about" className="section"> <div className="container"> <h
 
 ```
     <p className="body-text">
-      I am a Computer Science graduate focused on IT Support, Technical
-      Support, system administration, networking, and troubleshooting.
+      I am a Computer Science graduate focused on IT Support and Technical
+      Support, with hands-on experience working with Windows, Linux,
+      networking, Active Directory, PowerShell, and system troubleshooting.
+      I enjoy diagnosing technical issues, understanding how systems
+      connect, and finding practical solutions.
     </p>
 
     <p className="body-text">
-      I have hands-on experience with Windows Server, Active Directory,
-      PowerShell, networking, and IT troubleshooting. I also have a
-      background in full-stack development and practical software projects.
+      I have built hands-on projects and homelabs involving Windows Server,
+      Active Directory, domain authentication, IIS, networking, and
+      troubleshooting. I also have a full-stack development background,
+      which helps me understand applications, APIs, databases, and the
+      systems that support them.
     </p>
   </div>
 </section>
